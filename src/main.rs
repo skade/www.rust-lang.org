@@ -456,6 +456,9 @@ fn main() {
             .handlebars
             .register_helper("team-text", Box::new(TeamHelper::new()));
     });
+    compile_sass("app");
+    compile_sass("fonts");
+    concat_vendor_css(vec!["tachyons"]);
 
     rocket::ignite()
         .attach(templating)
